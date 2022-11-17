@@ -1,12 +1,12 @@
 .App {
     display: flex;
     flex-direction: column;
-    padding: 6rem;
+    padding: 5rem;
 }
 
-h1 {
-    font-style: italic;
-    font-size: 50px;
+.title {
+    font-family: "Brush Script MT";
+    font-size: 60px;
     color: rgb(187, 166, 187);
 }
 
@@ -16,6 +16,7 @@ h4{
 
 .row-container {
     display: flex;
+    margin-left: 5%;
 }
 
 .col-container {
@@ -30,7 +31,7 @@ h4{
 .bakery-item {
     width: 37%;
     height: 12%;
-    background-color: lavender;
+    background-color: rgb(193, 228, 249);
     margin: 1rem;
     padding: 1rem;
     border-radius: 10px;
@@ -74,7 +75,7 @@ h4{
     right: 10px;
     background-color:aliceblue ;
     border: 1px solid rgb(173, 210, 243);
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
     transition: ease-in-out 0.1s;
     padding: 5px;
@@ -142,6 +143,7 @@ h4{
     flex-flow: column;
     background-color: rgb(245, 247, 228);
     padding: 20px;
+    margin-top: 25px;
     border-radius: 20px;
 }
 
@@ -162,5 +164,41 @@ h4{
 
 
 
+/* category filter */
+.side-nav{
+    height: auto;  
+    width: 10%;  
+    position: fixed; 
+    z-index: 1; 
+    margin-top: 90px;
+    left: 5%; 
+    display: flex; 
+    flex-direction: column;
+    border-radius: 7px; 
+    background-color: lavender;
+    
+}
 
+.nav-btn{
+    background-color: lavender;
+    border: 1px solid rgb(216, 216, 248);
+    border-radius: 7px;
+    padding: 10px;
+    font-family: 'Arial';
+    color:rgb(167, 107, 167);
+    cursor: pointer;
+    font-size: 17px;
+    
+}
 
+.nav-btn:hover {
+    background-color: rgb(192, 171, 227);
+    transition: ease-in-out 0.1s;
+    font-weight: bold;
+}
+  
+.nav-btn:active {
+    background-color: rgb(192, 171, 227);
+    transition: ease-in-out 0.1s;
+    font-weight: bold;
+}

@@ -4,6 +4,7 @@ import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
 import CartItem from './components/CartItem';
 
+
 bakeryData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
 });
@@ -25,9 +26,9 @@ function App() {
     } else {
       newCart[name] = { name, quantity: 1 };
     }
-    console.log("newCart", newCart);
-    console.log("calling setTotal with", total)
-    console.log("calling setTotal with price,",  item.price)
+    //console.log("newCart", newCart);
+    //console.log("calling setTotal with", total)
+    //console.log("calling setTotal with price,",  item.price)
     setTotal(total + prices[item.name]);
     setCart(newCart);
   }
@@ -43,15 +44,33 @@ function App() {
     } else {
       newCart[name] = { name, quantity: 0 };
     }
-    console.log("newCart", newCart);
+    //console.log("newCart", newCart);
     setCart(newCart);
     setTotal(total - prices[item.name]);
   };
  
 
+  // Filter funciton
+  /*
+  const [data, setData] = useState(BakeryItem);
+  const handleFilter = (filterItem) =>{
+    const result = BakeryItem.filter((curData)=>{
+      return curData.type === filterItem;
+    });
+    setData(result);
+  }*/
+
   return (
     <div className="App">
-      <h1>Pastiche Fine Desserts</h1>
+      <p className='title'>Pastiche Fine Desserts</p>
+      
+      <div className='side-nav'>
+        <button className='nav-btn'>All</button>
+       <button className='nav-btn'>Cakes</button>
+        <button className='nav-btn'>Tarts</button>
+        <button className='nav-btn'>Cookies</button>
+      </div>
+
       
       <div className="row-container">
         <div className="col-container">
