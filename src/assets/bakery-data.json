@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Almond Biscotti",
+    "type": "Cookies",
+    "description": "A traditional Italian cookie made with toasted almonds and a hint of cinnamon.",
+    "price": 17.03,
+    "calories": 80,
+    "image": "images/Almond Biscotti.jpg"
+  },
+  {
+    "name": "Assorted Cookies",
+    "type": "Cookies",
+    "description": "Chocolate chip, almond biscotti, Russian tea cookies, chocolate walnut truffles, currant walnut rugelach & lemon squares.",
+    "price": 21.25,
+    "calories": 160,
+    "image": "images/Assorted Cookies.jpg"
+  },
+  {
+    "name": "Brownies",
+    "type": "Other Sweets",
+    "description": "Chocolate fudge brownies & chocolate peanut butter are currently available!",
+    "price": 5.99,
+    "calories": 90,
+    "image": "images/Brownies.jpg"
+  },
+  {
+    "name": "Cannoli",
+    "type": "Other Sweets",
+    "description": "A crispy cannoli shell with a traditional ricotta, mascarpone and shaved chocolate filling.",
+    "price": 4.25,
+    "calories": 80,
+    "image": "images/Cannoli.jpg"
+  },
+  {
+    "name": "Carrot Cake",
+    "type": "Cakes",
+    "description": "Carrots, pineapple, coconut, walnuts, and cream cheese frosting.",
+    "price": 37.5,
+    "calories": 260,
+    "image": "images/Carrot Cake.jpg"
+  },
+  {
+    "name": "Chocolate Cake",
+    "type": "Cakes",
+    "description": "Dark chocolate layers filled with rich chocolate ganache, finished with chocolate buttercream.",
+    "price": 45,
+    "calories": 370,
+    "image": "images/Chocolate Cake.jpg"
+  },
+  {
+    "name": "Chocolate Chip Cookies",
+    "type": "Cookies",
+    "description": "Made with dark chocolate chips, butter, fresh local eggs and brown sugar.",
+    "price": 17.99,
+    "calories": 100,
+    "image": "images/Chocolate Chip Cookies.jpg"
+  },
+  {
+    "name": "Chocolate Cream Tart",
+    "type": "Tarts",
+    "description": "A buttery tart shell filled with rich chocolate pudding, topped with fresh whipped cream.",
+    "price": 35.05,
+    "calories": 290,
+    "image": "images/Chocolate Cream Tart.jpg"
+  },
+  {
+    "name": "Classic Vanilla Cake",
+    "type": "Cakes",
+    "description": "Traditional butter cake filled with a vanilla mascarpone cream, finished with vanilla buttercream and a seasonal design.",
+    "price": 30.5,
+    "calories": 260,
+    "image": "images/Classic Vanilla Cake.jpg"
+  },
+  {
+    "name": "Coconut Cake",
+    "type": "Cakes",
+    "description": "Moist coconut cake made with coconut and almond flour. Finished with light cream cheese frosting, then covered in shredded coconut.",
+    "price": 33.03,
+    "calories": 240,
+    "image": "images/Coconut Cake.jpg"
+  },
+  {
+    "name": "Currant Walnut Rugelach",
+    "type": "Cookies",
+    "description": "Cream cheese pastry brushed with butter then rolled with currants, walnuts and cinnamon sugar.",
+    "price": 18,
+    "calories": 110,
+    "image": "images/Currant Walnut Rugelach.jpg"
+  },
+  {
+    "name": "Fresh Fruit Tart",
+    "type": "Tarts",
+    "description": "A buttery tart shell filled with vanilla custard, topped with fresh fruits of the season.",
+    "price": 36,
+    "calories": 260,
+    "image": "images/Fresh Fruit Tart.jpg"
+  },
+  {
+    "name": "Muffins & Scones",
+    "type": "Other Sweets",
+    "description": "Wild Blueberry Muffins. Scones: Cheddar Chive, Maple Walnut, Lemon Poppy, Lemon Ginger, Currant Walnut, or Cranberry Orange.",
+    "price": 5.75,
+    "calories": 120,
+    "image": "images/Muffins & Scones.jpg"
+  },
+  {
+    "name": "Pecan Russian Tea Cookies",
+    "type": "Cookies",
+    "description": "A buttery shortbread cookie made rich toasted pecans, then powdered with confectionary sugar.",
+    "price": 15.99,
+    "calories": 60,
+    "image": "images/Pecan Russian Tea Cookies.jpg"
+  },
+  {
+    "name": "Raspberry Tart",
+    "type": "Tarts",
+    "description": "A buttery tart shell filled with custard with a hint of lemon. Garnished with fresh raspberries and candied lemon zest.",
+    "price": 30,
+    "calories": 300,
+    "image": "images/Raspberry Tart.jpg"
+  },
+  {
+    "name": "Southern Pecan Tart",
+    "type": "Tarts",
+    "description": "A traditional pecan filling in an all butter tart shell, perfect with vanilla ice cream. 1-2 day shelf-life.",
+    "price": 28,
+    "calories": 310,
+    "image": "images/Southern Pecan Tart.jpg"
+  },
+  {
+    "name": "Tiramisu",
+    "type": "Cakes",
+    "description": "Sponge cake brushed with espresso rum syrup, layered with creamy mascarpone filling and cocoa. Finished with a coffee buttercream.",
+    "price": 39,
+    "calories": 400,
+    "image": "images/Tiramisu.jpg"
+  },
+  {
+    "name": "Vanilla Cheesecake",
+    "type": "Cakes",
+    "description": "French style vanilla bean cheesecake with a raspberry mirroir. Garnished with fresh raspberries and blackberries when available.",
+    "price": 29,
+    "calories": 330,
+    "image": "images/Vanilla Cheesecake.jpg"
+  }
+]
