@@ -4,7 +4,7 @@ import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
 import CartItem from './components/CartItem';
 
-
+// fetch jasn data in bakeryData Array
 bakeryData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
 });
@@ -51,14 +51,13 @@ function App() {
  
 
   // Filter funciton
-  /*
-  const [data, setData] = useState(BakeryItem);
-  const handleFilter = (filterItem) =>{
-    const result = BakeryItem.filter((curData)=>{
-      return curData.type === filterItem;
+  const [type, setType] = useState(bakeryData);
+  const handleFilter = (typeItem) =>{
+    const result = bakeryData.filter((curItem)=>{
+      return curItem.type === typeItem;
     });
-    setData(result);
-  }*/
+    setType(result);
+  }
 
   return (
     <div className="App">
@@ -67,14 +66,14 @@ function App() {
       <div className="body-container">
         <div className='side-nav'>
           <button className='nav-btn'>All</button>
-          <button className='nav-btn'>Cakes</button>
+          <button className='nav-btn' onClick={()=>handleFilter("Cakes")}>Cakes</button>
           <button className='nav-btn'>Tarts</button>
           <button className='nav-btn'>Cookies</button>
         </div>
         
         <div className="card-container">
           {bakeryData.map((item) => (
-            <BakeryItem {...item} key={item.name} addToCart={addToCart} />
+            <BakeryItem {...item} key={item.name} addToCart={addToCart}/>
           ))}
         </div>
    
