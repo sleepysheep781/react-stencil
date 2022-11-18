@@ -1,5 +1,13 @@
 [
   {
+    "name": "Brownies",
+    "type": "Other Sweets",
+    "description": "Chocolate fudge brownies & chocolate peanut butter are currently available!",
+    "price": 5.99,
+    "calories": 90,
+    "image": "images/Brownies.jpg"
+  },
+  {
     "name": "Almond Biscotti",
     "type": "Cookies",
     "description": "A traditional Italian cookie made with toasted almonds and a hint of cinnamon.",
@@ -15,14 +23,7 @@
     "calories": 160,
     "image": "images/Assorted Cookies.jpg"
   },
-  {
-    "name": "Brownies",
-    "type": "Other Sweets",
-    "description": "Chocolate fudge brownies & chocolate peanut butter are currently available!",
-    "price": 5.99,
-    "calories": 90,
-    "image": "images/Brownies.jpg"
-  },
+  
   {
     "name": "Cannoli",
     "type": "Other Sweets",

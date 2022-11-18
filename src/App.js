@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
 import CartItem from './components/CartItem';
-
 import Nav from 'react-bootstrap/Nav';
 
 
@@ -52,8 +51,6 @@ function App() {
     setTotal(total - prices[item.name]);
   };
  
-
-  // Filter funciton
   /*
   const [type, setType] = useState(bakeryData);
   const handleFilter = (typeItem) =>{
@@ -63,27 +60,58 @@ function App() {
     setType(result);
   }*/
 
+  //******  Filter funciton
   const [type, setType] = useState("All");
+  const [filteredData, setFilteredData] = useState(bakeryData)
+
+  const [sortType, setSortType] = useState("");
+  const [sortList, setSortList] = useState(filteredData)
+
   const selectFilterType = eventKey => {
     setType(eventKey);
+    const filtered = bakeryData.filter((item) => matchesFilterType(item, eventKey))
+    console.log(filtered)
+    
+    setFilteredData(filtered);
   };
 
-  const matchesFilterType = item => {
+  const matchesFilterType = (item, curType) => {
+    
     // all items should be shown when no filter is selected
-    if(type === "All") { 
+    if(curType === "All") { 
       return true
-    } else if (type === item.type) {
+    } else if (curType === item.type) {
       return true
     } else {
       return false
     }
   }
   
-  const filteredData = bakeryData.filter(matchesFilterType)
+  //******  Sort function
+
+  useEffect(() => {
+    const types = {
+      price: 'price',
+      calories: 'calories',
+    };
+    const sortProperty = types[sortType];
+    const sorted = [...filteredData].sort((a, b) => b[sortProperty] - a[sortProperty]);
+
+    setSortList(sorted);
+  }, [filteredData, sortType])
 
   return (
     <div className="App">
       <p className='title'>Pastiche Fine Desserts</p>
+      
+      <div className='sort-container'>
+        <label className='sort-title'>Sort By:</label>
+        <select onChange={(e) => setSortType(e.target.value)}>
+          <option value="">-- Please select --</option>
+          <option value="price">Price</option>
+          <option value="calories">Calories</option>
+        </select>
+      </div>
       
       <div className="body-container">
         <Nav className="side-nav" onSelect={selectFilterType}>
@@ -91,12 +119,13 @@ function App() {
           <Nav.Link className='nav-btn' eventKey="Cakes">Cakes</Nav.Link>
           <Nav.Link className='nav-btn' eventKey="Tarts">Tarts</Nav.Link>
           <Nav.Link className='nav-btn' eventKey="Cookies">Cookies</Nav.Link>
+          <Nav.Link className='nav-btn' eventKey="Other Sweets">Other Sweets</Nav.Link>
         </Nav>
 
         <div className="card-container">
-          {filteredData.map(item => 
+          {sortList.map(item => (
             <BakeryItem {...item} key={item.name} addToCart={addToCart}/>
-          )}
+          ))}
         </div>
 
         {/*

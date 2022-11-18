@@ -6,7 +6,7 @@
 
 .title {
     font-family: "Brush Script MT";
-    font-size: 60px;
+    font-size: 70px;
     color: rgb(187, 166, 187);
     text-align: center;
 }
@@ -168,7 +168,7 @@ h4{
 /* category filter */
 .side-nav{
     height: 100%;  
-    width: 10%;  
+    width: 160px;  
     z-index: 1; 
     margin-top: 30px;
     left: 5%; 
@@ -185,7 +185,7 @@ h4{
     font-family: 'Arial';
     color:rgb(167, 107, 167) !important;
     
-    font-size: 20px !important;
+    font-size: 17px !important;
     
 }
 
@@ -196,5 +196,19 @@ h4{
   
 .active {
     background-color: rgb(192, 171, 227);
+    font-weight: bold;
+}
+
+.sort-container{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.sort-title{
+    padding-right: 10px;
+    font-size: 15px;
     font-weight: bold;
 }

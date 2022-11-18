@@ -8,6 +8,7 @@ export default function BakeryItem (props){
             <div className="item-info">
                 <h4>{props.name}</h4>
                 <p className="item-description">{props.description}</p>
+                <p>Type: {props.type}</p>
                 <div className="calories-price">
                     <p className="calories">Calories: {props.calories}</p>
                     <p className="price">${props.price}</p>
