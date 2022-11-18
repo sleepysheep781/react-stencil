@@ -64,32 +64,29 @@ function App() {
     <div className="App">
       <p className='title'>Pastiche Fine Desserts</p>
       
-      <div className='side-nav'>
-        <button className='nav-btn'>All</button>
-       <button className='nav-btn'>Cakes</button>
-        <button className='nav-btn'>Tarts</button>
-        <button className='nav-btn'>Cookies</button>
-      </div>
-
-      
-      <div className="row-container">
-        <div className="col-container">
-        {bakeryData.map((item) => (
-          <BakeryItem {...item} cart={cart} addToCart={addToCart} key={item.name} />
-        ))}
-      </div>
-   
-      <div className="cart">
-        <p className="cart-title">Cart</p>
-          {Object.values(cart).map((item) => (
-            <CartItem className="cart-item" item={item} addtocart={addToCart} removefromcart={removeFromCart} key={item.name} />
-          ))}
-          {!isNaN(total) && total > 0 && <p className="total-price">Total: ${total.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]}</p>}
-      </div>
+      <div className="body-container">
+        <div className='side-nav'>
+          <button className='nav-btn'>All</button>
+          <button className='nav-btn'>Cakes</button>
+          <button className='nav-btn'>Tarts</button>
+          <button className='nav-btn'>Cookies</button>
+        </div>
         
-            
+        <div className="card-container">
+          {bakeryData.map((item) => (
+            <BakeryItem {...item} cart={cart} addToCart={addToCart} key={item.name} />
+          ))}
+        </div>
+   
+        <div className="cart">
+          <p className="cart-title">Cart</p>
+            {Object.values(cart).map((item) => (
+              <CartItem className="cart-item" item={item} addtocart={addToCart} removefromcart={removeFromCart} key={item.name} />
+            ))}
+            {!isNaN(total) && total > 0 && <p className="total-price">Total: ${total.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]}</p>}
+        </div>      
+      </div>
     </div>
-  </div>
   );
 }
 
