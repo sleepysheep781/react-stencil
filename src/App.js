@@ -74,7 +74,7 @@ function App() {
         
         <div className="card-container">
           {bakeryData.map((item) => (
-            <BakeryItem {...item} cart={cart} addToCart={addToCart} key={item.name} />
+            <BakeryItem {...item} key={item.name} addToCart={addToCart} />
           ))}
         </div>
    
@@ -83,7 +83,10 @@ function App() {
             {Object.values(cart).map((item) => (
               <CartItem className="cart-item" item={item} addtocart={addToCart} removefromcart={removeFromCart} key={item.name} />
             ))}
+            {total > 0 && <p className="total-price">Total: ${total}</p>}
+            {/*
             {!isNaN(total) && total > 0 && <p className="total-price">Total: ${total.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]}</p>}
+            */}
         </div>      
       </div>
     </div>
