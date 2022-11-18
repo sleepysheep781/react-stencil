@@ -8,6 +8,7 @@
     font-family: "Brush Script MT";
     font-size: 60px;
     color: rgb(187, 166, 187);
+    text-align: center;
 }
 
 h4{
@@ -29,8 +30,8 @@ h4{
 }
   
 .bakery-item {
-    width: 37%;
-    height: 12%;
+    width: 250px;
+    height: 550px;
     background-color: rgb(193, 228, 249);
     margin: 1rem;
     padding: 1rem;
@@ -166,9 +167,8 @@ h4{
 
 /* category filter */
 .side-nav{
-    height: auto;  
+    height: 100%;  
     width: 10%;  
-    position: fixed; 
     z-index: 1; 
     margin-top: 30px;
     left: 5%; 
@@ -182,22 +182,19 @@ h4{
     background-color: lavender;
     border: 1px solid rgb(216, 216, 248);
     border-radius: 7px;
-    padding: 10px;
     font-family: 'Arial';
-    color:rgb(167, 107, 167);
-    cursor: pointer;
-    font-size: 17px;
+    color:rgb(167, 107, 167) !important;
+    
+    font-size: 20px !important;
     
 }
 
 .nav-btn:hover {
     background-color: rgb(192, 171, 227);
-    transition: ease-in-out 0.1s;
     font-weight: bold;
 }
   
-.nav-btn:active {
+.active {
     background-color: rgb(192, 171, 227);
-    transition: ease-in-out 0.1s;
     font-weight: bold;
 }
