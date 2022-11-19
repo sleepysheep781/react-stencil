@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-h4{
+h4 {
     text-align: center;
 }
 
@@ -21,16 +21,16 @@ h4{
 }
 
 .card-container {
-    width: 150vw;
+    width: 200vw;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     padding: 15px;
     justify-content: center;
 }
-  
+
 .bakery-item {
-    width: 250px;
+    width: 280px;
     height: 550px;
     background-color: rgb(193, 228, 249);
     margin: 1rem;
@@ -46,24 +46,30 @@ h4{
 }
 
 .item-info {
-    padding:5px;
+    padding: 5px;
 }
 
 .item-description {
+    margin-top: 50px;
     font-style: italic;
     text-align: left;
     padding: 10px;
 }
 
-.calories-price{
-    padding: 10px;
+.calories-price {
+    padding: 10px; 
 }
 
-.calories{
+.type{
+    margin-top: 10px;
+    float: right;
+}
+
+.calories {
     float: left;
 }
 
-.price{
+.price {
     float: right;
 }
 
@@ -74,7 +80,7 @@ h4{
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color:aliceblue ;
+    background-color: aliceblue;
     border: 1px solid rgb(173, 210, 243);
     border-radius: 7px;
     cursor: pointer;
@@ -86,7 +92,7 @@ h4{
     background-color: rgb(44, 149, 240);
     transition: ease-in-out 0.1s;
 }
-  
+
 .add-btn:active {
     background-color: rgb(173, 210, 243);
     transition: ease-in-out 0.1s;
@@ -94,41 +100,25 @@ h4{
 
 
 
-/*
-.Cart {
-    position: sticky;
-    top: 140px;
-    
-    width: 30rem;
-    height: 60vh;
-    
-    color: rgb(90, 90, 0);
-    background-color: rgb(193, 228, 249);
-    padding: 30px;
-    padding-top: 10px;
-    margin: 10px;
-    border-radius: 20px;
+/*** Cart Style ***/
+
+.one-item {
+    display: flex;
 }
 
-
-*/
-
-
-.one-item{
-    display: flex; 
-}
-
-.text-left{
+.text-left {
     font-size: 15px;
+    float: left;
 }
 
-.quantity-right{
-    padding-left:15%;
-    display: flex; 
-    
+.quantity-right {
+    float: right;
+    padding-left: 15%;
+    display: flex;
+
 }
 
-.quantity-btn{
+.quantity-btn {
     border-radius: 8px;
     background-color: rgb(209, 207, 147);
     font-size: 15px;
@@ -160,54 +150,52 @@ h4{
 .total-price {
     font-size: 22px;
     color: rgb(206, 118, 4);
-    font-weight: bold;  
+    font-weight: bold;
 }
 
 
 
 /* category filter */
-.side-nav{
-    height: 100%;  
-    width: 160px;  
-    z-index: 1; 
+.side-nav {
+    height: 100%;
+    width: 160px;
+    z-index: 1;
     margin-top: 30px;
-    left: 5%; 
-    display: flex; 
+    left: 5%;
+    display: flex;
     flex-direction: column;
-    border-radius: 7px; 
+    border-radius: 7px;
     background-color: lavender;
 }
 
-.nav-btn{
+.nav-btn {
     background-color: lavender;
     border: 1px solid rgb(216, 216, 248);
     border-radius: 7px;
     font-family: 'Arial';
-    color:rgb(167, 107, 167) !important;
-    
+    color: rgb(167, 107, 167) !important;
     font-size: 17px !important;
-    
 }
 
 .nav-btn:hover {
     background-color: rgb(192, 171, 227);
     font-weight: bold;
 }
-  
+
 .active {
     background-color: rgb(192, 171, 227);
     font-weight: bold;
 }
 
-.sort-container{
+.sort-container {
     padding-top: 10px;
     display: flex;
     justify-content: center;
-    
+
 }
 
 
-.sort-title{
+.sort-title {
     padding-right: 10px;
     font-size: 15px;
     font-weight: bold;

@@ -50,33 +50,21 @@ function App() {
     setCart(newCart);
     setTotal(total - prices[item.name]);
   };
- 
-  /*
-  const [type, setType] = useState(bakeryData);
-  const handleFilter = (typeItem) =>{
-    const result = bakeryData.filter((curItem)=>{
-      return curItem.type === typeItem;
-    });
-    setType(result);
-  }*/
 
   //******  Filter funciton
   const [type, setType] = useState("All");
   const [filteredData, setFilteredData] = useState(bakeryData)
-
   const [sortType, setSortType] = useState("");
   const [sortList, setSortList] = useState(filteredData)
 
   const selectFilterType = eventKey => {
     setType(eventKey);
     const filtered = bakeryData.filter((item) => matchesFilterType(item, eventKey))
-    console.log(filtered)
-    
+    //console.log(filtered)
     setFilteredData(filtered);
   };
 
   const matchesFilterType = (item, curType) => {
-    
     // all items should be shown when no filter is selected
     if(curType === "All") { 
       return true
@@ -88,7 +76,6 @@ function App() {
   }
   
   //******  Sort function
-
   useEffect(() => {
     const types = {
       price: 'price',
@@ -100,6 +87,7 @@ function App() {
     setSortList(sorted);
   }, [filteredData, sortType])
 
+  
   return (
     <div className="App">
       <p className='title'>Pastiche Fine Desserts</p>
@@ -127,14 +115,6 @@ function App() {
             <BakeryItem {...item} key={item.name} addToCart={addToCart}/>
           ))}
         </div>
-
-        {/*
-        <div className="card-container">
-          {bakeryData.map((item) => (
-            <BakeryItem {...item} key={item.name} addToCart={addToCart}/>
-          ))}
-        </div>
-          */}
    
         <div className="cart">
           <p className="cart-title">Cart</p>
