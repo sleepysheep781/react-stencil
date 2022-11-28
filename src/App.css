@@ -30,8 +30,8 @@ h4 {
 }
 
 .bakery-item {
-    width: 280px;
-    height: 550px;
+    width: 300px;
+    height: 590px;
     background-color: rgb(193, 228, 249);
     margin: 1rem;
     padding: 1rem;
@@ -53,15 +53,19 @@ h4 {
     margin-top: 50px;
     font-style: italic;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
+}
+
+.restrictions{
+    padding: 5px;
 }
 
 .calories-price {
-    padding: 10px; 
+    padding: 5px; 
 }
 
 .type{
-    margin-top: 10px;
+    margin-top: 5px;
     float: right;
 }
 
@@ -132,7 +136,8 @@ h4 {
     height: 100%;
     display: flex;
     flex-flow: column;
-    background-color: rgb(245, 247, 228);
+    background-color: rgb(251, 231, 234);
+    /* rgb(245, 247, 228);*/
     padding: 20px;
     margin-top: 25px;
     border-radius: 20px;

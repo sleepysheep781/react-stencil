@@ -9,6 +9,7 @@ export default function BakeryItem (props){
                 <h4>{props.name}</h4>
                 <p className="type">Type: {props.type}</p>
                 <p className="item-description">{props.description}</p>
+                <p className='restrictions'>Restrictions: {[...props.restrictions].join(', ')}</p>
                 <div className="calories-price">
                     <p className="calories">Calories: {props.calories}</p>
                     <p className="price">${props.price}</p>  

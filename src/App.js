@@ -1,9 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
 import CartItem from './components/CartItem';
-import Nav from 'react-bootstrap/Nav';
+//import Nav from 'react-bootstrap/Nav';
+
+import Box from '@mui/joy/Box';
+import Checkbox from '@mui/joy/Checkbox';
+import List from '@mui/joy/List';
+import ListItem from '@mui/joy/ListItem';
+import Typography from '@mui/joy/Typography';
+import Sheet from '@mui/joy/Sheet';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 // fetch jasn data in bakeryData Array
@@ -51,15 +62,23 @@ function App() {
     setTotal(total - prices[item.name]);
   };
 
+
   //******  Filter funciton
   const [type, setType] = useState("All");
   const [filteredData, setFilteredData] = useState(bakeryData)
+  const [restriction, setRestriction] = useState({
+    bakeryProduct: filteredData,
+    filters: new Set(),
+  });
   const [sortType, setSortType] = useState("");
   const [sortList, setSortList] = useState(filteredData)
+  const [filterSet, setFilterSet] = useState(new Set())
 
-  const selectFilterType = eventKey => {
-    setType(eventKey);
-    const filtered = bakeryData.filter((item) => matchesFilterType(item, eventKey))
+  //******  Filter function: Type
+  const selectFilterType = event => {
+    //console.log(event.target.value);
+    setType(event.target.value);
+    const filtered = bakeryData.filter((item) => matchesFilterType(item, event.target.value))
     //console.log(filtered)
     setFilteredData(filtered);
   };
@@ -74,6 +93,49 @@ function App() {
       return false
     }
   }
+
+  //******  Filter function: Restriction
+  const filterRestriction = useCallback(event => {
+    setRestriction(prevRestriction=>{
+      //console.log('filters', prevRestriction)
+      let filters = filterSet
+      //var temp = [];
+      let bakeryProduct = filteredData
+      var temp = filteredData
+      //console.log(event.target.value);
+      //console.log(filters);
+      if (event.target.checked){
+        //filters = bakeryProduct.filter((product) => product.restrictions.includes(event.target.value))
+        filters.add(event.target.value)
+        if(filters.size){
+          for (let feature of filters) {
+            bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
+          }
+        }
+      } else{
+        filters.delete(event.target.value)
+        console.log(filteredData)
+        bakeryProduct = temp
+      }
+      //console.log("filters: ", filters)
+      //console.log(bakeryProduct)
+
+      if(filters.size){
+        for (let feature of filters) {
+          bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
+        }
+        // bakeryProduct = bakeryProduct.filter(b=>{
+        //   return filters.has(b.restrictions)
+        // }) 
+      }
+      console.log(bakeryProduct)
+      setFilteredData(bakeryProduct);
+
+      // set the resriction to filters
+      return filters;
+    })
+  }, [filteredData, filterSet])
+  
   
   //******  Sort function
   useEffect(() => {
@@ -100,8 +162,47 @@ function App() {
           <option value="calories">Calories</option>
         </select>
       </div>
+
+      
       
       <div className="body-container">
+
+        <Box>
+          <Sheet variant="outlined" sx={{ p: 2, borderRadius: 'sm', width: 190, bgcolor: '#E6E6FA' }}>
+            <FormControl>
+              <Typography id="radio-buttons-group-label" level="body2" fontWeight="lg">Types</Typography>
+              <RadioGroup
+                aria-labelledby="radio-buttons-group-label"
+                defaultValue="All"
+                name="radio-buttons-group"
+                value={type}
+                onChange={selectFilterType}
+              >
+                <FormControlLabel value="All" control={<Radio />} label="All" />
+                <FormControlLabel value="Cakes" control={<Radio />} label="Cakes" />
+                <FormControlLabel value="Tarts" control={<Radio />} label="Tarts" />
+                <FormControlLabel value="Cookies" control={<Radio />} label="Cookies" />
+                <FormControlLabel value="Other Sweets" control={<Radio />} label="Other Sweets" />
+              </RadioGroup>
+            </FormControl>
+           
+
+          <Typography id="sandwich-group2" level="body2" fontWeight="lg" mb={1}>
+            Dietary Restrictions
+          </Typography>
+          <Box role="group" aria-labelledby="sandwich-group2">
+            <List size="sm">
+              <ListItem><Checkbox value="Gluten-free" label="Gluten-free" onChange={filterRestriction}/></ListItem>
+              <ListItem><Checkbox value="Nut-free" label="Nut-free" onChange={filterRestriction}/></ListItem>
+              <ListItem><Checkbox value="Dairy-free" label="Dairy-free" onChange={filterRestriction}/></ListItem>
+            </List>
+          </Box>
+        </Sheet>
+      </Box>
+
+  
+
+        {/*
         <Nav className="side-nav" onSelect={selectFilterType}>
           <Nav.Link className='nav-btn' eventKey="All">All</Nav.Link>
           <Nav.Link className='nav-btn' eventKey="Cakes">Cakes</Nav.Link>
@@ -109,6 +210,7 @@ function App() {
           <Nav.Link className='nav-btn' eventKey="Cookies">Cookies</Nav.Link>
           <Nav.Link className='nav-btn' eventKey="Other Sweets">Other Sweets</Nav.Link>
         </Nav>
+  */}
 
         <div className="card-container">
           {sortList.map(item => (
