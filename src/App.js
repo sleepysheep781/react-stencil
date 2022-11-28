@@ -3,7 +3,6 @@ import './App.css';
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
 import CartItem from './components/CartItem';
-//import Nav from 'react-bootstrap/Nav';
 
 import Box from '@mui/joy/Box';
 import Checkbox from '@mui/joy/Checkbox';
@@ -66,21 +65,21 @@ function App() {
   //******  Filter funciton
   const [type, setType] = useState("All");
   const [filteredData, setFilteredData] = useState(bakeryData)
-  const [restriction, setRestriction] = useState({
-    bakeryProduct: filteredData,
-    filters: new Set(),
-  });
   const [sortType, setSortType] = useState("");
-  const [sortList, setSortList] = useState(filteredData)
-  const [filterSet, setFilterSet] = useState(new Set())
+  const [sortList, setSortList] = useState(filteredData);
+  const [restrictionSet, setRestrictionSet] = useState(new Set());
+  
 
   //******  Filter function: Type
   const selectFilterType = event => {
-    //console.log(event.target.value);
     setType(event.target.value);
-    const filtered = bakeryData.filter((item) => matchesFilterType(item, event.target.value))
-    //console.log(filtered)
-    setFilteredData(filtered);
+    let filtered = bakeryData.filter((item) => matchesFilterType(item, event.target.value))
+    if(restrictionSet.size){
+      for (let restriction of restrictionSet) {
+        filtered = filtered.filter((product) => product.restrictions.includes(restriction))
+      }
+    }
+    setFilteredData(filtered)
   };
 
   const matchesFilterType = (item, curType) => {
@@ -94,47 +93,62 @@ function App() {
     }
   }
 
-  //******  Filter function: Restriction
+ //******  Filter function: Restriction
   const filterRestriction = useCallback(event => {
-    setRestriction(prevRestriction=>{
-      //console.log('filters', prevRestriction)
-      let filters = filterSet
-      //var temp = [];
-      let bakeryProduct = filteredData
-      var temp = filteredData
-      //console.log(event.target.value);
-      //console.log(filters);
-      if (event.target.checked){
-        //filters = bakeryProduct.filter((product) => product.restrictions.includes(event.target.value))
-        filters.add(event.target.value)
-        if(filters.size){
-          for (let feature of filters) {
-            bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
-          }
-        }
-      } else{
-        filters.delete(event.target.value)
-        console.log(filteredData)
-        bakeryProduct = temp
+      let check_box = event.target.value;
+      if (event.target.checked) {
+        restrictionSet.add(check_box)
+      }else {
+        restrictionSet.delete(check_box)
       }
-      //console.log("filters: ", filters)
-      //console.log(bakeryProduct)
-
-      if(filters.size){
-        for (let feature of filters) {
-          bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
+      let filtered = bakeryData.filter((item) => matchesFilterType(item, type))
+      
+      if(restrictionSet.size) {
+        for(let feature of restrictionSet) {
+          filtered = filtered.filter((product) => product.restrictions.includes(feature))
         }
-        // bakeryProduct = bakeryProduct.filter(b=>{
-        //   return filters.has(b.restrictions)
-        // }) 
       }
-      console.log(bakeryProduct)
-      setFilteredData(bakeryProduct);
+      setFilteredData(filtered);
+      return restrictionSet;
+  }, [filteredData])
+ 
+  // const filterRestriction = useCallback(event => {
+  //   setRestriction(prevRestriction=>{
+  //     let bakeryProduct = filteredData
+  //     var temp = filteredData
+  //     //console.log(event.target.value);
+  //     //console.log(filters);
+  //     if (event.target.checked){
+  //       //filters = bakeryProduct.filter((product) => product.restrictions.includes(event.target.value))
+  //       restriction.filters.add(event.target.value)
+  //       if(restriction.filters.size){
+  //         for (let feature of restriction.filters) {
+  //           bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
+  //         }
+  //       }
+  //     } else{
+  //       restriction.filters.delete(event.target.value)
+  //       console.log(filteredData)
+  //       bakeryProduct = temp
+  //     }
+  //     //console.log("filters: ", filters)
+  //     //console.log(bakeryProduct)
 
-      // set the resriction to filters
-      return filters;
-    })
-  }, [filteredData, filterSet])
+  //     if(restriction.filters.size){
+  //       for (let feature of restriction.filters) {
+  //         bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
+  //       }
+  //       // bakeryProduct = bakeryProduct.filter(b=>{
+  //       //   return filters.has(b.restrictions)
+  //       // }) 
+  //     }
+  //     console.log(bakeryProduct)
+  //     setFilteredData(bakeryProduct);
+  //     setRestriction(bakeryProduct, restriction.filters);
+  //     // set the resriction to filters
+  //     return restriction.filters;
+  //   })
+  // }, [filteredData, restriction])
   
   
   //******  Sort function
@@ -163,8 +177,7 @@ function App() {
         </select>
       </div>
 
-      
-      
+    
       <div className="body-container">
 
         <Box>
