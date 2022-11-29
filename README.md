@@ -1,7 +1,7 @@
 # Development
 
 ### Link to Deployed Website
-If you used the stencil code, this is `https://sleepysheep.github.io/react-stencil`
+If you used the stencil code, this is `https://sleepysheep781.github.io/react-stencil`
 
 ### Goal and Value of the Application
 This application aims to implement the online shopping service for a bakery.
