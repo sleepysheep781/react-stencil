@@ -156,41 +156,6 @@ h4 {
     font-weight: bold;
 }
 
-
-
-/* category filter */
-/*
-.side-nav {
-    height: 100%;
-    width: 160px;
-    z-index: 1;
-    margin-top: 30px;
-    left: 5%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 7px;
-    background-color: lavender;
-}
-
-.nav-btn {
-    background-color: lavender;
-    border: 1px solid rgb(216, 216, 248);
-    border-radius: 7px;
-    font-family: 'Arial';
-    color: rgb(167, 107, 167) !important;
-    font-size: 17px !important;
-}
-
-.nav-btn:hover {
-    background-color: rgb(192, 171, 227);
-    font-weight: bold;
-}
-
-.active {
-    background-color: rgb(192, 171, 227);
-    font-weight: bold;
-}*/
-
 .sort-container {
     padding-top: 10px;
     display: flex;
