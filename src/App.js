@@ -38,9 +38,6 @@ function App() {
     } else {
       newCart[name] = { name, quantity: 1 };
     }
-    //console.log("newCart", newCart);
-    //console.log("calling setTotal with", total)
-    //console.log("calling setTotal with price,",  item.price)
     setTotal(total + prices[item.name]);
     setCart(newCart);
   }
@@ -56,20 +53,18 @@ function App() {
     } else {
       newCart[name] = { name, quantity: 0 };
     }
-    //console.log("newCart", newCart);
     setCart(newCart);
     setTotal(total - prices[item.name]);
   };
 
 
-  //******  Filter funciton
+  //******  Filter funciton: useState definition
   const [type, setType] = useState("All");
   const [filteredData, setFilteredData] = useState(bakeryData)
+  const [restrictionSet, setRestrictionSet] = useState(new Set());
   const [sortType, setSortType] = useState("");
   const [sortList, setSortList] = useState(filteredData);
-  const [restrictionSet, setRestrictionSet] = useState(new Set());
-  
-
+ 
   //******  Filter function: Type
   const selectFilterType = event => {
     setType(event.target.value);
@@ -95,61 +90,24 @@ function App() {
 
  //******  Filter function: Restriction
   const filterRestriction = useCallback(event => {
-      let check_box = event.target.value;
-      if (event.target.checked) {
-        restrictionSet.add(check_box)
-      }else {
-        restrictionSet.delete(check_box)
-      }
-      let filtered = bakeryData.filter((item) => matchesFilterType(item, type))
-      
-      if(restrictionSet.size) {
-        for(let feature of restrictionSet) {
-          filtered = filtered.filter((product) => product.restrictions.includes(feature))
-        }
-      }
-      setFilteredData(filtered);
-      return restrictionSet;
-  }, [filteredData])
- 
-  // const filterRestriction = useCallback(event => {
-  //   setRestriction(prevRestriction=>{
-  //     let bakeryProduct = filteredData
-  //     var temp = filteredData
-  //     //console.log(event.target.value);
-  //     //console.log(filters);
-  //     if (event.target.checked){
-  //       //filters = bakeryProduct.filter((product) => product.restrictions.includes(event.target.value))
-  //       restriction.filters.add(event.target.value)
-  //       if(restriction.filters.size){
-  //         for (let feature of restriction.filters) {
-  //           bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
-  //         }
-  //       }
-  //     } else{
-  //       restriction.filters.delete(event.target.value)
-  //       console.log(filteredData)
-  //       bakeryProduct = temp
-  //     }
-  //     //console.log("filters: ", filters)
-  //     //console.log(bakeryProduct)
+    let checkBox = event.target.value;
+    if (event.target.checked) {
+      restrictionSet.add(checkBox)
+    }else {
+      restrictionSet.delete(checkBox)
+    }
 
-  //     if(restriction.filters.size){
-  //       for (let feature of restriction.filters) {
-  //         bakeryProduct = bakeryProduct.filter((product) => product.restrictions.includes(feature))
-  //       }
-  //       // bakeryProduct = bakeryProduct.filter(b=>{
-  //       //   return filters.has(b.restrictions)
-  //       // }) 
-  //     }
-  //     console.log(bakeryProduct)
-  //     setFilteredData(bakeryProduct);
-  //     setRestriction(bakeryProduct, restriction.filters);
-  //     // set the resriction to filters
-  //     return restriction.filters;
-  //   })
-  // }, [filteredData, restriction])
-  
+    let filtered = bakeryData.filter((item) => matchesFilterType(item, type))
+    if(restrictionSet.size) {
+      for(let restriction of restrictionSet) {
+        filtered = filtered.filter((product) => product.restrictions.includes(restriction))
+      }
+    }
+
+    setFilteredData(filtered);
+    return restrictionSet;
+  }, [restrictionSet, type])
+
   
   //******  Sort function
   useEffect(() => {
@@ -177,9 +135,8 @@ function App() {
         </select>
       </div>
 
-    
-      <div className="body-container">
 
+      <div className="body-container">
         <Box>
           <Sheet variant="outlined" sx={{ p: 2, borderRadius: 'sm', width: 190, bgcolor: '#E6E6FA' }}>
             <FormControl>
@@ -199,31 +156,19 @@ function App() {
               </RadioGroup>
             </FormControl>
            
+            <Typography id="sandwich-group2" level="body2" fontWeight="lg" mb={1}>
+              Dietary Restrictions
+            </Typography>
+            <Box role="group" aria-labelledby="sandwich-group2">
+              <List size="sm">
+                <ListItem><Checkbox value="Gluten-free" label="Gluten-free" onChange={filterRestriction}/></ListItem>
+                <ListItem><Checkbox value="Nut-free" label="Nut-free" onChange={filterRestriction}/></ListItem>
+                <ListItem><Checkbox value="Dairy-free" label="Dairy-free" onChange={filterRestriction}/></ListItem>
+              </List>
+            </Box>
+          </Sheet>
+        </Box>
 
-          <Typography id="sandwich-group2" level="body2" fontWeight="lg" mb={1}>
-            Dietary Restrictions
-          </Typography>
-          <Box role="group" aria-labelledby="sandwich-group2">
-            <List size="sm">
-              <ListItem><Checkbox value="Gluten-free" label="Gluten-free" onChange={filterRestriction}/></ListItem>
-              <ListItem><Checkbox value="Nut-free" label="Nut-free" onChange={filterRestriction}/></ListItem>
-              <ListItem><Checkbox value="Dairy-free" label="Dairy-free" onChange={filterRestriction}/></ListItem>
-            </List>
-          </Box>
-        </Sheet>
-      </Box>
-
-  
-
-        {/*
-        <Nav className="side-nav" onSelect={selectFilterType}>
-          <Nav.Link className='nav-btn' eventKey="All">All</Nav.Link>
-          <Nav.Link className='nav-btn' eventKey="Cakes">Cakes</Nav.Link>
-          <Nav.Link className='nav-btn' eventKey="Tarts">Tarts</Nav.Link>
-          <Nav.Link className='nav-btn' eventKey="Cookies">Cookies</Nav.Link>
-          <Nav.Link className='nav-btn' eventKey="Other Sweets">Other Sweets</Nav.Link>
-        </Nav>
-  */}
 
         <div className="card-container">
           {sortList.map(item => (

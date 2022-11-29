@@ -1,5 +1,6 @@
 export default function CartItem (props) {
     const {item, addtocart, removefromcart} = props;
+    
     return(
       <div className="one-item">
         <p className="text-left">{item.name}</p>

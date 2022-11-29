@@ -78,7 +78,6 @@ h4 {
 }
 
 
-
 .add-btn {
     box-sizing: border-box;
     position: absolute;
@@ -105,7 +104,6 @@ h4 {
 
 
 /*** Cart Style ***/
-
 .one-item {
     display: flex;
 }
@@ -124,7 +122,7 @@ h4 {
 
 .quantity-btn {
     border-radius: 8px;
-    background-color: rgb(209, 207, 147);
+    background-color: rgb(245, 159, 169);
     font-size: 15px;
     width: 25px;
     height: 25px;
@@ -137,7 +135,6 @@ h4 {
     display: flex;
     flex-flow: column;
     background-color: rgb(251, 231, 234);
-    /* rgb(245, 247, 228);*/
     padding: 20px;
     margin-top: 25px;
     border-radius: 20px;
@@ -150,17 +147,19 @@ h4 {
 .cart-title {
     font-size: 25px;
     font-weight: bold;
+    color: rgb(207, 98, 100);
 }
 
 .total-price {
     font-size: 22px;
-    color: rgb(206, 118, 4);
+    color: rgb(222, 105, 107);
     font-weight: bold;
 }
 
 
 
 /* category filter */
+/*
 .side-nav {
     height: 100%;
     width: 160px;
@@ -190,7 +189,7 @@ h4 {
 .active {
     background-color: rgb(192, 171, 227);
     font-weight: bold;
-}
+}*/
 
 .sort-container {
     padding-top: 10px;
