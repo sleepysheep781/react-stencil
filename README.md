@@ -8,10 +8,15 @@ This application aims to implement the online shopping service for a bakery. Use
 
 ### Usability Principles Considered
 **1. Aesthetic and minimalist design:** The page doesn't have any irrelevant information and consists of header name, filtering form, sorting dropdown, image gallery, and shopping-cart aggregator. Each part has a different color so that users can distinguish them.
+
 **2. Visibility of system status:** The page always keeps users informed about what is going on with appropriate titles.
+
 **3. Consistency and standards:** The application is designed with consistent styling such as font size, font color, font style, image display, etc.
+
 **4. Recoginition rather than recall:** Instructions are visible. Users don't need to remember any information. 
+
 **5. User control and freedom:** The shopping cart supports undo and redo. Users can easily add to or remove from the cart.
+
 **6. Match between system and real world:** Following real-world conventions, the application speaks users' language with words, icons, concepts familiar to users. For example, a radio button indicates a single selection, while a checkbox allows multiple selections.
 
 ### Organization of Components
