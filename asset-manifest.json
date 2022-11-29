@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-stencil/static/css/main.627775db.css",
-    "main.js": "/react-stencil/static/js/main.ab00a17b.js",
+    "main.css": "/react-stencil/static/css/main.51cf6866.css",
+    "main.js": "/react-stencil/static/js/main.67b81d8e.js",
     "index.html": "/react-stencil/index.html",
-    "main.627775db.css.map": "/react-stencil/static/css/main.627775db.css.map",
-    "main.ab00a17b.js.map": "/react-stencil/static/js/main.ab00a17b.js.map"
+    "main.51cf6866.css.map": "/react-stencil/static/css/main.51cf6866.css.map",
+    "main.67b81d8e.js.map": "/react-stencil/static/js/main.67b81d8e.js.map"
   },
   "entrypoints": [
-    "static/css/main.627775db.css",
-    "static/js/main.ab00a17b.js"
+    "static/css/main.51cf6866.css",
+    "static/js/main.67b81d8e.js"
   ]
 }
